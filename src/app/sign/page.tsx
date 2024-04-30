@@ -88,7 +88,7 @@ export default function Sign() {
   };
 
   function register() {
-    axios.post(`http://localhost:3000/register`,{
+    axios.post(`http://localhost:3000/register`, {
       name: userName,
       email: userEmail,
       password: userPassword,
@@ -99,7 +99,6 @@ export default function Sign() {
       zipcode: userCEP,
     });
   }
-
 
   return (
     <div className="flex h-lvh bg-slate-50">
@@ -126,7 +125,7 @@ export default function Sign() {
                   fullWidth
                   className="mb-3"
                   value={loginEmail}
-                  onChange={(e)=>handleSignEmail(e.target.value)}
+                  onChange={(e) => handleSignEmail(e.target.value)}
                 />
                 <TextField
                   id="userInPassword"
@@ -135,8 +134,7 @@ export default function Sign() {
                   fullWidth
                   type="password"
                   value={loginPassword}
-
-                  onChange={(e)=>handleSignPassword(e.target.value)}
+                  onChange={(e) => handleSignPassword(e.target.value)}
                 />
                 <div className="w-full">
                   <fieldset className="my-3">
@@ -162,8 +160,7 @@ export default function Sign() {
                     variant="outlined"
                     fullWidth
                     className="mb-3"
-
-                    onChange={(e)=>setUserName(e.target.value)}
+                    onChange={(e) => setUserName(e.target.value)}
                   />
                   <TextField
                     id="userUpEmail"
@@ -172,9 +169,7 @@ export default function Sign() {
                     fullWidth
                     className="mb-3"
                     type="email"
-                    onChange={(e)=>setUserEmail(e.target.value)}
-            
-
+                    onChange={(e) => setUserEmail(e.target.value)}
                   />
                   <TextField
                     id="userUpPassword"
@@ -183,7 +178,7 @@ export default function Sign() {
                     fullWidth
                     className="mb-3"
                     type="password"
-                    onChange={(e)=>setUserPassword(e.target.value)}
+                    onChange={(e) => setUserPassword(e.target.value)}
                   />
                   <TextField
                     id="userUpCEP"
@@ -193,8 +188,6 @@ export default function Sign() {
                     className="mb-3"
                     type="number"
                     onChange={(e) => autocompleteAdress(e.target.value)}
-                    
-                    
                   />
                   <FormControl fullWidth className="mb-3">
                     <InputLabel>Estado</InputLabel>
@@ -248,8 +241,22 @@ export default function Sign() {
                     fullWidth
                     label="Enderço"
                     value={userAdress}
+                    onChange={(e) => {
+                      setUserAdress(e.target.value);
+                    }}
                     className="mb-3"
                   />
+                  <TextField
+                    fullWidth
+                    type="number"
+                    label="Enderço"
+                    value={userAdress}
+                    onChange={(e) => {
+                      setUserHouseNumber(e.target.value);
+                    }}
+                    className="mb-3"
+                  />
+
                   <Button
                     variant="contained"
                     color="success"
