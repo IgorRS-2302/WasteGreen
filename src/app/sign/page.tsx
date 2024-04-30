@@ -1,7 +1,7 @@
 import Logo from "../components/logo";
 import Link from "next/link";
 
-export default function Signin() {
+export default function Sign() {
   return (
     <div className="flex h-lvh bg-slate-50">
       <div className="bg-white flex flex-wrap m-auto gap-5 border w-2/3 max-w-xl shadow rounded-md p-10">
