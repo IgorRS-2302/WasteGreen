@@ -15,7 +15,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import axios from "axios";
+import { sign } from "../services/sign";
 import { useRouter } from "next/router";
+
 
 export default function Sign() {
   const [typeSign, setTypeSign] = useState<number>(0);
@@ -64,8 +66,8 @@ export default function Sign() {
   };
 
   async function autocompleteAdress(value: any) {
+    setUserCEP(value); 
     if (value.length == 8) {
-      setUserCEP(value);
       let addressData: any = await axios
         .get(`http://viacep.com.br/ws/${value}/json/`)
         .then((res) => res.data);
@@ -85,7 +87,7 @@ export default function Sign() {
   };
 
   const handleSignPassword = (password: string) => {
-    setLoginEmail(password);
+    setLoginPassword(password);
   };
 
   function register() {
@@ -99,6 +101,15 @@ export default function Sign() {
       number: userHouseNumber,
       zipcode: userCEP,
     });
+  }
+
+  function login() {
+    if (loginEmail && loginPassword) {
+      sign({
+        email: loginEmail,
+        password: loginPassword,
+      });
+    }
   }
 
   return (
@@ -149,6 +160,7 @@ export default function Sign() {
                     color="success"
                     size="large"
                     className="m-auto flex bg-green-700 w-full"
+                    onClick={()=>login()}
                   >
                     <span className="text-white font-bold">Entrar</span>
                   </Button>
@@ -164,6 +176,7 @@ export default function Sign() {
                     fullWidth
                     className="mb-3"
                     onChange={(e) => setUserName(e.target.value)}
+                    value={userName}
                   />
                   <TextField
                     id="userUpEmail"
@@ -173,6 +186,7 @@ export default function Sign() {
                     className="mb-3"
                     type="email"
                     onChange={(e) => setUserEmail(e.target.value)}
+                    value={userEmail}
                   />
                   <TextField
                     id="userUpPassword"
@@ -182,6 +196,7 @@ export default function Sign() {
                     className="mb-3"
                     type="password"
                     onChange={(e) => setUserPassword(e.target.value)}
+                    value={userPassword}
                   />
                   <TextField
                     id="userUpCEP"
@@ -252,8 +267,8 @@ export default function Sign() {
                   <TextField
                     fullWidth
                     type="number"
-                    label="Enderço"
-                    value={userAdress}
+                    label="Número"
+                    value={userHouseNumber}
                     onChange={(e) => {
                       setUserHouseNumber(e.target.value);
                     }}
@@ -265,6 +280,7 @@ export default function Sign() {
                     color="success"
                     size="large"
                     className="m-auto flex bg-green-700 w-full mt-7 "
+                    onClick={()=>register()}
                   >
                     <span className="text-white font-bold">Cadastrar-se</span>
                   </Button>
