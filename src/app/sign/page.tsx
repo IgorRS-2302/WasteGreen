@@ -15,6 +15,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 export default function Sign() {
   const [typeSign, setTypeSign] = useState<number>(0);
@@ -103,9 +104,11 @@ export default function Sign() {
   return (
     <div className="flex h-lvh bg-slate-50">
       <div className="bg-white flex flex-wrap m-auto gap-5 border w-4/5 max-w-xl shadow rounded-md p-10">
-        <div className="m-auto h-10">
-          <Logo />
-        </div>
+        <Link href="/" className="w-full">
+          <div className="m-auto h-10">
+            <Logo />
+          </div>
+        </Link>
         <div className="flex flex-wrap w-full ">
           <Tabs
             value={typeSign}

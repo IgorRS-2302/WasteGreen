@@ -7,7 +7,7 @@ import { Button } from "@mui/material";
 export default function Home() {
   return (
     <main className="flex bg-slate-50 flex-col items-center justify-between text-white">
-      <HeaderHome />
+      <HeaderHome isLoggedin={false} />
       <div className="w-full relative">
         <Image
           className="object-fill w-full max-h-[85vh]"
