@@ -16,8 +16,6 @@ import { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import axios from "axios";
 import { sign } from "../services/sign";
-import { useRouter } from "next/router";
-
 
 export default function Sign() {
   const [typeSign, setTypeSign] = useState<number>(0);
@@ -66,7 +64,7 @@ export default function Sign() {
   };
 
   async function autocompleteAdress(value: any) {
-    setUserCEP(value); 
+    setUserCEP(value);
     if (value.length == 8) {
       let addressData: any = await axios
         .get(`http://viacep.com.br/ws/${value}/json/`)
@@ -103,13 +101,15 @@ export default function Sign() {
     });
   }
 
-  function login() {
+  async function login() {
+    let userData = undefined;
     if (loginEmail && loginPassword) {
-      sign({
+      userData = await sign({
         email: loginEmail,
         password: loginPassword,
       });
     }
+    console.log(userData);
   }
 
   return (
@@ -160,7 +160,7 @@ export default function Sign() {
                     color="success"
                     size="large"
                     className="m-auto flex bg-green-700 w-full"
-                    onClick={()=>login()}
+                    onClick={() => login()}
                   >
                     <span className="text-white font-bold">Entrar</span>
                   </Button>
@@ -280,7 +280,7 @@ export default function Sign() {
                     color="success"
                     size="large"
                     className="m-auto flex bg-green-700 w-full mt-7 "
-                    onClick={()=>register()}
+                    onClick={() => register()}
                   >
                     <span className="text-white font-bold">Cadastrar-se</span>
                   </Button>
