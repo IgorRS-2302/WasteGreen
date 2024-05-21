@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@mui/material";
-import BasicMenu from "./dropdown";
 import Logo from "./logo";
 import LoginIcon from "@mui/icons-material/Login";
 import { useRouter } from "next/navigation";
@@ -48,6 +47,7 @@ function HeaderHome({ isLoggedin }: Props) {
                 Entrar
               </Button>
             </Link>
+
           </div>
         )}
       </div>
