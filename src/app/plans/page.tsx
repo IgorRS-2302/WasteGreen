@@ -114,7 +114,7 @@ export default function PlansPage() {
               </Dialog>
             </Card>
           </div>
-          <div className="mt-3 bg-[url('../../../../public/images/logo.png')]">
+          <div className="mt-3">
             <Card
               className="p-5"
             >
