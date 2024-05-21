@@ -15,7 +15,12 @@ export function Footer() {
         <Image src={LogoWG} alt="Banner" />
       </div>
       <div className="w-1/4 text-center">
-        <span>Redes socialis</span>
+        <ul>
+          <li>Rua dos Taldos, N° 39 - Recife</li>
+          <li>+55 (81) 98349-2515</li>
+          <li>@wastegreen</li>
+          <li>+55 (81) 98349-2515</li>
+        </ul>
       </div>
     </footer>
   );
