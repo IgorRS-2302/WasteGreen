@@ -1,6 +1,7 @@
 "use client";
 
 import { ChartsXAxis, LineChart } from "@mui/x-charts";
+
 import { HeaderHome } from "../components/header";
 import Pickups from "../components/pickups";
 
