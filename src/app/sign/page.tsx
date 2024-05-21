@@ -89,7 +89,7 @@ export default function Sign() {
   };
 
   function register() {
-    axios.post(`http://localhost:3000/register`, {
+    axios.post(`http://localhost:3001/register`, {
       name: userName,
       email: userEmail,
       password: userPassword,
@@ -109,7 +109,11 @@ export default function Sign() {
         password: loginPassword,
       });
     }
-    console.log(userData);
+    if (userData) {
+      localStorage.setItem("user_id", userData.user.id);
+      localStorage.setItem("name", userData.profile.name);
+    }
+    console.log(userData.profile);
   }
 
   return (
@@ -155,15 +159,17 @@ export default function Sign() {
                     <Checkbox color="success" />
                     <span>Lembrar senha</span>
                   </fieldset>
-                  <Button
-                    variant="contained"
-                    color="success"
-                    size="large"
-                    className="m-auto flex bg-green-700 w-full"
-                    onClick={() => login()}
-                  >
-                    <span className="text-white font-bold">Entrar</span>
-                  </Button>
+                  <Link href={'/dashboard'}>
+                    <Button
+                      variant="contained"
+                      color="success"
+                      size="large"
+                      className="m-auto flex bg-green-700 w-full"
+                      onClick={() => login()}
+                    >
+                      <span className="text-white font-bold">Entrar</span>
+                    </Button>
+                  </Link>
                 </div>
               </div>
             ) : (
