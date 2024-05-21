@@ -34,7 +34,9 @@ export default function PlanCard({
           {listItem ? (
             <ul className="list-inside">
               {listItem.map((item) => (
-                <li className="list-disc">{item}</li>
+                <li className="list-disc" key={item}>
+                  {item}
+                </li>
               ))}
             </ul>
           ) : null}

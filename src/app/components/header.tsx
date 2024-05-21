@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@mui/material";
-import BasicMenu from "./dropdown";
 import Logo from "./logo";
 import LoginIcon from "@mui/icons-material/Login";
 import { useRouter } from "next/navigation";
@@ -28,10 +27,18 @@ function HeaderHome({ isLoggedin }: Props) {
             </div>
           </div>
         ) : (
-          <div>
+          <div className="flex justify-between items-center w-full">
             <Link href={"/"}>
               <Logo />
             </Link>
+            <Button
+              className="bg-green-500 text-white rounded-lg py-2 px-5 hover:bg-green-900"
+              onClick={() => {
+                router.push("/sign");
+              }}
+            >
+              Login
+            </Button>
           </div>
         )}
       </div>
