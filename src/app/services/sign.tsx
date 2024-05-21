@@ -5,7 +5,7 @@ interface ILogin{
     password:string
 }
 
-const url = "http://localhost:3000/"
+const url = "http://localhost:3001/"
 
 
 export async function sign(body:ILogin){

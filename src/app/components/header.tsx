@@ -18,27 +18,36 @@ function HeaderHome({ isLoggedin }: Props) {
     <div className=" bg-white w-full border flex z-10">
       <div className="flex items-center w-full h-[5em] px-5">
         {isLoggedin ? (
-          <div className="flex items-center gap-5">
-            <Sidebar />
-            <div className="h-7">
-              <Link href={"/"}>
-                <Logo />
-              </Link>
+          <div className="flex items-center justify-between w-full gap-5">
+            <div className="flex items-center gap-5">
+              <Sidebar />
+              <div className="h-7">
+                <Link href={"/"}>
+                  <Logo />
+                </Link>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <p>
+                Olá,
+              </p>
+                <span className="font-semibold">{localStorage.getItem("name")}</span>
             </div>
           </div>
         ) : (
-          <div className="flex justify-between items-center w-full">
+          <div className="flex w-full justify-between items-center">
             <Link href={"/"}>
               <Logo />
             </Link>
-            <Button
-              className="bg-green-500 text-white rounded-lg py-2 px-5 hover:bg-green-900"
-              onClick={() => {
-                router.push("/sign");
-              }}
-            >
-              Login
-            </Button>
+            <Link href={"/sign"}>
+              <Button
+                variant="contained"
+                className="bg-green-500 hover:bg-green-800"
+              >
+                Entrar
+              </Button>
+            </Link>
+
           </div>
         )}
       </div>
