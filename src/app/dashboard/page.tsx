@@ -42,8 +42,8 @@ export default function Dashboard() {
             <div className="p-2 bg-white rounded-md">
               <div className="gap-2">
                 <div className="flex gap-3 mb-2">
-                  <p>codColeta:</p>
-                  <p>3128791372</p>
+                  <p>Data da entrega:</p>
+                  <p>20/05/2024</p>
                 </div>
                 <p className="font-medium">Recebidos:</p>
                 <ul className="list-inside">
@@ -51,7 +51,7 @@ export default function Dashboard() {
                     Blusa WasteGreen Urban
                   </li>
                   <li className="list-disc">
-                    Sementes Coentro
+                    Sementes de Coentro
                   </li>
                   <li className="list-disc">
                     Pá de jardim
