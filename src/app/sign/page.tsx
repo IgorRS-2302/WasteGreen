@@ -110,8 +110,8 @@ export default function Sign() {
       });
     }
     if (userData) {
-      localStorage.setItem("user_id", userData.user.id);
-      localStorage.setItem("name", userData.profile.name);
+      // localStorage.setItem("user_id", userData.user.id);
+      // localStorage.setItem("name", userData.profile.name);
     }
     console.log(userData.profile);
   }

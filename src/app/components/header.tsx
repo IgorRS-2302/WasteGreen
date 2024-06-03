@@ -31,7 +31,10 @@ function HeaderHome({ isLoggedin }: Props) {
               <p>
                 Olá,
               </p>
-                <span className="font-semibold">{localStorage.getItem("name")}</span>
+                <span className="font-semibold">
+                  {/* {localStorage.getItem("name")} */}
+                  Usuário
+                  </span>
             </div>
           </div>
         ) : (

@@ -85,8 +85,8 @@ export default function Sidebar() {
                   color="error"
                   className="w-full h-fit"
                   onClick={()=>{
-                    localStorage.removeItem('user_id');
-                    localStorage.removeItem('name');
+                    // localStorage.removeItem('user_id');
+                    // localStorage.removeItem('name');
                   }}
                 >
                   Sair
